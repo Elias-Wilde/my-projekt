@@ -1,13 +1,6 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-left: 2rem;
     background-color: #121212;
-}
-
-.banner {
-    margin-top: 2rem;
-    color: green;
-    margin-bottom: 1rem;
 }
 
 footer {

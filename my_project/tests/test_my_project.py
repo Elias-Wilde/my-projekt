@@ -1,4 +1,4 @@
-from great_project.website import app
+from my_project.website import app
 
 
 def test_index():

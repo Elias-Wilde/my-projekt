@@ -8,8 +8,8 @@ app.config.from_pyfile("config.py")
 
 
 @app.route('/')
-def index():
-    return render_template('index.html', page_title="My great website")
+def landing_page():
+    return render_template('landing_page.html', page_title="My great website")
 
 
 if __name__ == "__main__":

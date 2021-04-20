@@ -1,3 +1,3 @@
-from great_project.website import app  # noqa: F401
+from my_project.website import app  # noqa: F401
 
 #hello gcp
