@@ -1,3 +1,5 @@
-from my_project.website import app  # noqa: F401
+from my_project import app  # noqa: F401
 
-#hello gcp
+
+if __name__ == "__main__":
+    app.run(host="localhost", port=8080, debug=True)

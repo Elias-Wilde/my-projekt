@@ -1,4 +1,4 @@
-from my_project.website import app
+from my_project import app
 
 
 def test_index():
@@ -14,6 +14,6 @@ def test_index():
         # IS THIS FAILING CAUSE OF BOOTSTRAP??????
         # Store the contents of the html response in a local variable.
         # This should be a string with the same content as the file index.html
-        #html_content = response.data.decode()
+        html_content = response.data.decode()
 
-        #assert "<html>" in html_content
+        assert '<html lang="en">' in html_content

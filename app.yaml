@@ -1,4 +1,4 @@
-runtime: python38 
+runtime: python38
 
 instance_class: F2
 

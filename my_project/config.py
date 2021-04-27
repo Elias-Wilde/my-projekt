@@ -30,4 +30,10 @@ MY_PORT = "5000"
 # by adding it as a repository secret, like with our google cloud credentials.
 # Those passwords can then be added dynamically to app.yaml by the GitHub
 # Action step called "Prepare Deployment" on line 36 of main.yaml.
-DATABASE_PASSWORD = environ.get('DB_PASSWORD')
+#DATABASE_PASSWORD = environ.get("DB_PASSWORD")
+
+SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI")
+
+SQLALCHEMY_TRACK_MODIFICATIONS = False  # TODO google das noch mal
+
+SECRET_KEY = environ.get("SECRET_KEY")
