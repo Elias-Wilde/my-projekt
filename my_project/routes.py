@@ -1,8 +1,9 @@
 from my_project import app
 from flask import render_template, redirect, url_for, flash
-from my_project.forms import RegisterForm
+from my_project.forms import RegisterForm, LoginForm
 from my_project.models import User
 from my_project import db
+from flask_login import login_user, logout_user
 
 
 
@@ -34,3 +35,22 @@ def register_page():
         for err_msg in form.errors.values():
             flash(f'Error with creating your account: {err_msg}', category='danger')
     return render_template("register.html", page_title="Register", form=form)
+
+@app.route("/login", methods=["GET", "POST"])
+def login_page():
+    form = LoginForm()
+    if form.validate_on_submit():
+        attempted_user = User.query.filter_by(user_name=form.username.data).first()
+        if attempted_user and attempted_user.check_password_correction(attempted_password=form.password.data):
+            login_user(attempted_user)
+            flash(f'Succesfully logged in as: {attempted_user.user_name}', category="success")
+            return redirect(url_for("browse_page"))
+        else:
+            flash(f'Username and password did not match! Please try again', category="danger")
+    return render_template('login.html', form=form)
+
+@app.route("/logout")
+def logout_page():
+    logout_user()
+    flash(f'Succesfully logged out!', category="info")
+    return redirect(url_for("landing_page"))
