@@ -32,6 +32,10 @@ def browse_page():
     )
 
 
+@app.route("/post_details", methods=["GET", "POST"])
+def post_details_page():
+    return render_template("post_details.html", page_tittle="Post details")
+
 @app.route("/create", methods=["GET", "POST"])
 @login_required
 def create_page():
