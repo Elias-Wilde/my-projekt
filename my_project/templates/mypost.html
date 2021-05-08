@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- TODO for loop for every post, currently only newest displayed-->
+
+<body class="" style="color:white">
+    <div class="container">
+        <legend class="border-bottom mb-5 mt-5">
+            {% if posts == [] %}
+            {{ current_user.user_name }}, no post yet! <a href="{{ url_for('create_page') }}" 
+            class="btn btn-primary" role="button">Create one here!</a>
+            {% else %}
+            {{ current_user.user_name }}, manage your post's!
+            {% endif %}
+        </legend>
+        {% for post in posts %}
+            <div class="border border-white my-3 p-3 w-wrap">
+                <div>
+                    <h3>Name:</h3>
+                    <p>{{ post.name }}</p>
+                </div>
+                <div>
+                    <h3>Short description:</h3>
+                    <p>{{ post.short_description }}</p>
+                </div>
+                <div>
+                    <h3>Description:</h3>
+                    <p>{{ post.description}}</p>
+                </div>
+                <div>
+                    <h3>Start Date:</h3>
+                    <p>{{ post.service_start_date }}</p>
+                </div>
+                <div>
+                    <h3>End Date:</h3>
+                    <p>{{ post.service_end_date }}</p>
+                </div>
+                <div>
+                    <h3>Max Distance:</h3>
+                    <p>{{ post.max_distance }}</p>
+                </div>
+                <div>
+                    <h3>Is public?</h3>
+                    <p>{{ post.is_public }}</p>
+                </div>
+                <div class="d-flex justify-content-center gap-5">
+                    <button class="btn btn-primary btn-lg" onclick=""> Edit</button>
+                    <button class="btn btn-danger btn-lg" onclick=""> Delete</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}

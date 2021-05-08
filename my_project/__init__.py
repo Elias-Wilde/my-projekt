@@ -13,4 +13,9 @@ bcrypt = Bcrypt(app)
 
 login_manager = LoginManager(app)
 
-from my_project import routes #has to be down here, otherwise "cannot import 'app', circular error"
+login_manager.login_view = "login_page"
+login_manager.login_message_category = "info"
+
+from my_project import (
+    routes,
+)  # has to be down here, otherwise "cannot import 'app', circular error"

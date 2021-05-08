@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body class="">
+    <div class="container">
+        <form method="POST" class="form-post" style="color:white">
+            {{ form.hidden_tag() }}
+            <legend class="border-bottom mb-5 mt-5">
+                Please Create your post.
+            </legend>
+            <br>
+            <fieldset class="form-group">
+            {{ form.name.label() }}
+            {{ form.name(class="form-control", placeholder="Listening Name") }}
+            <br>
+            <div class="form-group">
+            {{ form.short_description.label() }}
+            {{ form.short_description(class="form-control", placeholder="Short Description") }}
+            </div>
+            <br>
+            {{ form.description.label() }}
+            {{ form.description(class="form-control", placeholder="Description") }}
+            <br>
+            <div class="form-group">
+            {{ form.service_start_date.label() }}
+            {{ form.service_start_date(class="datepicker",type="date") }}
+            {{ form.service_end_date.label() }}
+            {{ form.service_end_date(class="datepicker",type="date") }}
+            </div>
+            <br>
+            <div class="form-group">
+            {{ form.max_distance.label() }}
+            {{ form.max_distance(class="form-control", type="number", placeholder="Max Distance in KM") }}
+            </div>
+            <br>
+            {{ form.is_public.label() }}
+            {{ form.is_public(class="form-control", type="radio", placeholder="Public?") }}
+            <br>
+            </fieldset>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+</body>
+{% endblock %}
