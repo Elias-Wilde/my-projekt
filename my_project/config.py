@@ -33,7 +33,7 @@ MY_PORT = "5000"
 #DATABASE_PASSWORD = environ.get("DB_PASSWORD")
 
 if environ.get('DATABASE_URL'):
-  # Set the database URL from the environment variable if it is set. 
+  # Set the database URL from the environment variable if it is set.
   # The .replace() is a workaround because of a mismatch between Heroku's default set up and SQLAlchemy
   SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL').replace("://", "ql://", 1)
 else:
