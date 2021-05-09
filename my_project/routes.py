@@ -23,18 +23,21 @@ def landing_page():
     return render_template("landing_page.html", page_title="My great website")
 
 
-@app.route("/browse", methods=["GET", "POST"])
+@app.route("/browse", methods=["GET", "POST"])  #error handling? if empty it should return the blank page with the heading + flash message
 def browse_page():
     posts = Post.query.all()
     users = User.query.all()
-    return render_template(
-        "browse.html", page_tittle="Browse", posts=posts, users=users
-    )
+    if posts != []:
+        return render_template("browse.html", page_tittle="Browse", posts=posts, users=users)
+    else:
+        flash(f"No posts yet.", category="danger")
+    return render_template("browse.html", page_tittle="Browse", posts=posts, users=users)
 
 
-@app.route("/post_details", methods=["GET", "POST"])
-def post_details_page():
-    return render_template("post_details.html", page_tittle="Post details")
+
+# @app.route("/post_details", methods=["GET", "POST"])
+# def post_details_page():
+#     return render_template("post_details.html", page_tittle="Post details")
 
 @app.route("/create", methods=["GET", "POST"])
 @login_required
