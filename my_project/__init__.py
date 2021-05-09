@@ -5,6 +5,7 @@ from flask_login import LoginManager
 import os
 
 app = Flask(__name__)
+#heroku sucks
 # configure Flask using environment variables
 #app.config.from_pyfile("config.py")
 if os.environ.get('DATABASE_URL'):
