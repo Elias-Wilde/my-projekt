@@ -7,6 +7,7 @@ import os
 app = Flask(__name__)
 # configure Flask using environment variables
 #app.config.from_pyfile("config.py")
+
 if os.environ.get('DATABASE_URL'):
   app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 else:
