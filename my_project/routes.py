@@ -169,6 +169,7 @@ def profile_page():
             current_user.ort = form.ort.data
             current_user.postleitzahl = form.postleitzahl.data
             current_user.address = form.address.data
+            current_user.phone_number = form.phone_number.data
             db.session.commit()
             flash(
                 f"Profile succesfully updated, {current_user.user_name}",

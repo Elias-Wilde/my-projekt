@@ -54,6 +54,7 @@ class ProfileForm(FlaskForm):
     ort = StringField(label="Ort:", validators=[Length(min=3, max=30)])
     postleitzahl = IntegerField(label="zip code:")
     address = StringField(label="Address:", validators=[Length(min=5, max=40)])
+    phone_number = IntegerField(label="Phone Number:")
     picture = FileField(
         label="Profile Picture:", validators=[FileAllowed(["jpg", "png"])]
     )

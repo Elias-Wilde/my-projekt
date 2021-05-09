@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- TODO for loop for every post, currently only newest displayed-->
-
+<!-- for loop for every post, if statement to set the correct "author"(user) to the post-->
 <body class="" style="color:white">
     <div class="container">
         <legend class="border-bottom mb-5 mt-5">
@@ -41,20 +40,17 @@
                     <p>{{ post.max_distance }} km</p>
                 </div>
             </div>
-            <div class="p-3">
-                <button class="btn btn-danger" onclick="">Location</a>
-            </div>
             <div class="d-flex justify-content-center gap-5">
                 <!-- Button data target got jinja "syntax in it so it toggles the correct modal " -->
-                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-details{{ post.max_distance }}-modal-lg"> More  
+                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-details{{ post.max_distance }}-modal-xl"> More
                     Info</button>
             </div>
         </div>
             <!-- Modal comes here -->
             <!-- Modal class got jinja "syntax in it gets toggled by the correct button  , {{post.max_distance}} I used that because its just a number eg the shortest. Not beutifull but works " -->
-            <div class="modal fade bd-details{{ post.max_distance }}-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog"
+            <div class="modal fade bd-details{{ post.max_distance }}-modal-xl" id="exampleModalCenter" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="color: black;">
-                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="">Details</h5>
@@ -63,7 +59,15 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            {{ post.name }}
+                            <h5>Detailed description:</h5>
+                            <p class="w-wrap">{{ post.description }}</p>
+                            <h5>Address:</h5>
+                            <p>{{ user.address }}</p>
+                            <h5>Contact Information:</h5>
+                            <p>&#x1F4E7;  &nbsp; {{ user.email_address }}</p>
+                            <p>&#9742;  &nbsp; {{ user.phone_number }}</p>
+                            <h5>Show Address on Google Maps:</h5>
+                           <a class="btn btn-danger" href="https://www.google.com/maps/place/{{user.address}}+{{user.postleitzahl}}+{{user.ort}}">Location</a>   <!-- todo gcp api embed map ifram, works for now-->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary">Contact </button>
@@ -78,3 +82,5 @@
     </div>
 </body>
 {% endblock %}
+
+
