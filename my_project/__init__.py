@@ -12,6 +12,8 @@ if os.environ.get('DATABASE_URL'):
 else:
   app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
+app.config["SECRET_KEY"] = "SECRET_KEY"
+
 db = SQLAlchemy(app)
 
 bcrypt = Bcrypt(app)
