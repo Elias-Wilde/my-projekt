@@ -32,14 +32,13 @@ MY_PORT = "5000"
 # Action step called "Prepare Deployment" on line 36 of main.yaml.
 #DATABASE_PASSWORD = environ.get("DB_PASSWORD")
 
-if environ.get('DATABASE_URL'):
-  # Set the database URL from the environment variable if it is set.
-  # The .replace() is a workaround because of a mismatch between Heroku's default set up and SQLAlchemy
-  SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL').replace("://", "ql://", 1)
-else:
-  # Use SQLite as a fallback and locally
-  SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI") #"sqlite:///my_project.db"
-
+# if environ.get('DATABASE_URL'):
+#   # Set the database URL from the environment variable if it is set.
+#   # The .replace() is a workaround because of a mismatch between Heroku's default set up and SQLAlchemy
+#   SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL').replace("://", "ql://", 1)
+# else:
+#   # Use SQLite as a fallback and locally
+#   SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI") #"sqlite:///my_project.db"
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False  # TODO google das noch mal
 
