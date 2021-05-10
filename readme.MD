@@ -15,15 +15,15 @@ You should have:
 
 - create a venv with the requirements.txt (exclude line 47, psycopg2==2.8.6 This is only for Heroku)
 
-- 'pip install -r requirements.txt'
+- `pip install -r requirements.txt`
 
-- 'source env/Scripts/activate'
+- `source env/Scripts/activate`
 
-- 'export FLASK_APP=main.py'
+- `export FLASK_APP=main.py`
 
 Now you should be able to run the project locally!
 
-- 'flask run'
+- `flask run`
 (on some systhem these commands might be different)
 
 ## how to...
@@ -34,7 +34,6 @@ To test the project:
 
 To Lint the project:
 > flake8 --exclude venv
-
 
 ### A Few Notes...
 
