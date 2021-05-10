@@ -20,6 +20,8 @@ MY_PORT = "5000"
 #   # Use SQLite as a fallback and locally
 #   SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI") #"sqlite:///my_project.db"
 
+SQLALCHEMY_DATABASE_URI = 'sqlite:///my_project.db'
+
 SQLALCHEMY_TRACK_MODIFICATIONS = False  # TODO google das noch mal
 
 SECRET_KEY = environ.get("SECRET_KEY")
