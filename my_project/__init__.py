@@ -6,14 +6,14 @@ import os
 
 app = Flask(__name__)
 # configure Flask using environment variables
-#app.config.from_pyfile("config.py")
+app.config.from_pyfile("config.py")
 
-if os.environ.get('DATABASE_URL'):
-  app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
-else:
-  app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///my_project.db'
+# if os.environ.get('DATABASE_URL'):
+#   app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
+# else:
+#   app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///my_project.db'
 
-app.config["SECRET_KEY"] = "SECRET_KEY"
+# app.config["SECRET_KEY"] = "SECRET_KEY"
 
 db = SQLAlchemy(app)
 
