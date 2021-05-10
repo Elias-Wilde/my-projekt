@@ -104,7 +104,9 @@ def login_page():
     form = LoginForm()  #get the LoginForm from import at top (Forms.py)
     if form.validate_on_submit():
         attempted_user = User.query.filter_by(user_name=form.username.data).first()     #query the attempted login user by the username (the form input)
-        if attempted_user and attempted_user.check_password_correction(     #check if the user_name and the password
+        #check if the user_name and the password
+        if attempted_user and attempted_user.check_password_correction(
+            attempted_password=form.password.data
         ):
             login_user(attempted_user)  #login success
             flash(

@@ -34,7 +34,7 @@ class RegisterForm(FlaskForm):
         label="Email Address:", validators=[Email(), DataRequired()]
     )
     password1 = PasswordField(
-        label="Password:", validators=[Length(min=6, max=25), DataRequired()]
+        label="Password:", validators=[Length(min=4, max=25), DataRequired()]
     )
     password2 = PasswordField(
         label="Confirm Password:", validators=[EqualTo("password1"), DataRequired()]
@@ -50,10 +50,10 @@ class LoginForm(FlaskForm):
 #profile form
 class ProfileForm(FlaskForm):
 
-    full_name = StringField(label="Full Name:", validators=[Length(min=5, max=35)])
-    ort = StringField(label="Ort:", validators=[Length(min=3, max=30)])
+    full_name = StringField(label="Full Name: (min.3-max.35)", validators=[Length(min=5, max=35)])
+    ort = StringField(label="Ort: (min.3-max.30)", validators=[Length(min=3, max=30)])
     postleitzahl = IntegerField(label="zip code:")
-    address = StringField(label="Address:", validators=[Length(min=5, max=40)])
+    address = StringField(label="Address: (min.5-max.40)", validators=[Length(min=5, max=40)])
     phone_number = IntegerField(label="Phone Number:")
     picture = FileField(
         label="Profile Picture:", validators=[FileAllowed(["jpg", "png"])]  #only allow images with .ong or .jpg
@@ -70,13 +70,13 @@ class ProfileForm(FlaskForm):
 # with different fields and validatoes
 class PostForm(FlaskForm):
     name = StringField(
-        label="Listening display Name:", validators=[Length(min=12, max=60)]
+        label="Listening display Name: (min.5-max.60)", validators=[Length(min=5, max=60)]
     )
     short_description = StringField(
-        label="Add a short description:", validators=[Length(min=20, max=80)]
+        label="Add a short description: (min.12-max.80)", validators=[Length(min=12, max=80)]
     )
     description = StringField(
-        label="Detailed description:", validators=[Length(min=80, max=500)]
+        label="Detailed description: (min.20-max.500)", validators=[Length(min=20, max=500)]
     )
     service_start_date = DateField()
     service_end_date = DateField()
