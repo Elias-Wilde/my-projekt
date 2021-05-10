@@ -41,8 +41,9 @@
                 <br>
                 <div class="form-group">
                     <!-- !Error! The profile has to be filled and submitted before choosing a picture, else Internal service error, Heroku: ineter out of range?!-->
-                    <p style="color: red;"> Insert and Submit/Update profile information</p>
-                    <p style="color: red;"> before choosing a picture!</p>
+                    <!-- ERROR UPDATE -->
+                    <!-- IT BREAKS WHEN THE PHONE NUMBER IS LONGER THEN 9 DIGITS -->
+                    <!-- NOT A PROBLEM WITH THE PICTURE -->
                     <!-- profile picture -->
                     {{ form.picture.label() }}
                     {{ form.picture(class="form-control-file") }}
