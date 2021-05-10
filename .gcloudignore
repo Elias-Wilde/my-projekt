@@ -1,6 +1,6 @@
-# these files will not be uploaded to google cloud 
+# these files will not be uploaded to google cloud
 
-# configs and git 
+# configs and git
 .gcloudignore
 .git
 .gitignore
