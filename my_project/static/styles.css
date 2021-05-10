@@ -9,10 +9,13 @@ footer {
 }
 .profile-picture {
     vertical-align: middle;
-    width: 75px;
-    height: 75px;
+    width: 40px;
+    height: 40px;
     border-radius: 50% !important;
   }
 .w-wrap {
     word-wrap: break-word;
+}
+.nav-item {
+    padding-right: 2vh !important;
 }
