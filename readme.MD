@@ -1,4 +1,9 @@
-# My Foundations Project 2021
+# My Foundations Project 2021 - Short description
+
+The Idea of the website is to enable communitys to connect in order to help and share among the community members.
+What ever you need help with (example: shopping assistance) you will most likely find a voluntere to help you out.
+On the other hand you can create posts and offer whatever you got to offer for your community, help / goods / guidance / company.
+The idea is to build neighborhood communitys.
 
 
 # Installation Instructions
