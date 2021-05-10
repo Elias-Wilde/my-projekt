@@ -27,7 +27,7 @@ class User(db.Model, UserMixin):
     friends_list = db.Column(db.String)
     created_at = db.Column(db.TIMESTAMP())
     phone_number = db.Column(db.Integer)
-    image_file = db.Column(db.String(), nullable=False, default="default.jpg")
+    image_file = db.Column(db.String(), nullable=False, default="default.png")
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
 
     @property

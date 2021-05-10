@@ -56,7 +56,7 @@ class ProfileForm(FlaskForm):
     address = StringField(label="Address: (min.5-max.40)", validators=[Length(min=5, max=40)])
     phone_number = IntegerField(label="Phone Number:")
     picture = FileField(
-        label="Profile Picture:", validators=[FileAllowed(["jpg", "png"])]  #only allow images with .ong or .jpg
+        label="Profile Picture: (jpg/png)", validators=[FileAllowed(["jpg", "png"])]  #only allow images with .ong or .jpg
     )
     submit = SubmitField(label="Update Profile")
 
