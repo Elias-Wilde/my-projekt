@@ -23,7 +23,7 @@ def before_request():
 @app.route("/")
 @app.route("/landing_page")
 def landing_page():
-    return render_template("landing_page.html", page_title="My great website")
+    return render_template("landing_page.html", page_title="Help & Help")
 
 
 # browse post's page
