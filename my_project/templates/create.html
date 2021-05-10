@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<!-- create a post, form is the PostForm -->
 <body class="">
     <div class="container">
         <form method="POST" class="form-post" style="color:white">
+            <!-- protection from some sort of attacks (CSRF)-->
             {{ form.hidden_tag() }}
             <legend class="border-bottom mb-5 mt-5">
                 Please Create your post.

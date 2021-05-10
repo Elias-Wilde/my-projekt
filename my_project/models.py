@@ -10,7 +10,7 @@ from datetime import datetime
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-
+#User model
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer(), primary_key=True)
     user_name = db.Column(db.String(length=25), nullable=False, unique=True)
@@ -43,7 +43,7 @@ class User(db.Model, UserMixin):
     def check_password_correction(self, attempted_password):
         return bcrypt.check_password_hash(self.password_hash, attempted_password)
 
-
+#Post model
 class Post(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(length=60), nullable=False, unique=False)

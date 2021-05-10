@@ -8,6 +8,7 @@ app = Flask(__name__)
 # configure Flask using environment variables
 #app.config.from_pyfile("config.py")
 
+#not using the config file right now because I had problems with heroku getting the Database URL
 if os.environ.get('DATABASE_URL'):
   app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 else:
@@ -15,6 +16,7 @@ else:
 
 app.config["SECRET_KEY"] = "SECRET_KEY"
 
+# database instance
 db = SQLAlchemy(app)
 
 bcrypt = Bcrypt(app)

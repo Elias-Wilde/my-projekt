@@ -22,22 +22,28 @@
 
     <header>
         <div class="">
+            <!-- navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler01"
                     aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle Navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- jinja to have non static url'S -->
                 <a class="navbar-brand mx-4" href="{{ url_for('landing_page') }}">
-                    <img src="static/logo.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top ml-5">
+                    <img src="static/logo.png" alt="" width="28" height="28" class="d-inline-block align-text-top ml-5">
                     Help & Help
                 </a>
+                <!-- navbar collapse -->
                 <div class="collapse navbar-collapse" id="navbarToggler01">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
+                            <!-- nav links to navigate to other pages / routes -->
                             <a class="nav-link" href="{{ url_for('landing_page') }}">Home </a>
                         </li>
+                        <!-- if user is authenticated/logged in display this part -->
                         {% if current_user.is_authenticated %}
                         <li class="nav-item">
+                            <!-- jinja to display the current user's user name (and profile picture below) -->
                             <a class="nav-link" href="#">Welcome, {{ current_user.user_name }}</a>
                         </li>
                         <li class="nav-item">
@@ -53,6 +59,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('logout_page') }}">Logout</a>
                         </li>
+                        <!-- if user is not authenticated display this part -->
                         {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('login_page') }}">Login</a>
@@ -65,11 +72,13 @@
                 </div>
             </nav>
         </div>
+        <!-- flash messages for loop, set category with jinja to the category of the flash message -->
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         {% for category, message in messages %}
         <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
             <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+            <!-- message content -->
             {{ message }}
         </div>
         {% endfor %}

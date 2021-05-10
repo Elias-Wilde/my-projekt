@@ -1,18 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- TODO for loop for every post, currently only newest displayed-->
-
+<!-- display all post's made by the logged in user -->
 <body class="" style="color:white">
     <div class="container">
         <legend class="border-bottom mb-5 mt-5">
+            <!-- if user hasent made a post yet -->
             {% if posts == [] %}
-            {{ current_user.user_name }}, no post yet! <a href="{{ url_for('create_page') }}" 
+            {{ current_user.user_name }}, no post yet! <a href="{{ url_for('create_page') }}"
             class="btn btn-primary" role="button">Create one here!</a>
             {% else %}
+            <!-- else user greeting -->
             {{ current_user.user_name }}, manage your post's!
             {% endif %}
         </legend>
+        <!-- loop over the posts -->
         {% for post in posts %}
             <div class="border border-white my-3 p-3 w-wrap">
                 <div>
@@ -43,6 +45,7 @@
                     <h3>Is public?</h3>
                     <p>{{ post.is_public }}</p>
                 </div>
+                <!-- Buttons without function yet! -->
                 <div class="d-flex justify-content-center gap-5">
                     <button class="btn btn-primary btn-lg" onclick=""> Edit</button>
                     <button class="btn btn-danger btn-lg" onclick=""> Delete</button>

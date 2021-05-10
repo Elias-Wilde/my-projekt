@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- for loop for every post, if statement to set the correct "author"(user) to the post-->
 <body class="" style="color:white">
     <div class="container">
         <legend class="border-bottom mb-5 mt-5">
             Browse post's!
         </legend>
+        <!-- for loop to loop over the post's -->
+        <!-- for loop over users -->
+        <!-- if statement gets the corret owner/user to the post  -->
         {% for post in posts %}
         {% for user in users %}
         {% if post.owner == user.id %}
+        <!-- post layout -->
         <div class="border border-secondary my-5 p-3 w-wrap bg-dark">
             <div class="d-flex justify-content-between">
                 <div>
@@ -19,6 +22,7 @@
                 <div>
                     <p class="mb-0">Creator:</p>
                     <h3>{{ user.user_name }}</h3>
+                    <!-- if the owner from the post is the current user -->
                     {% if current_user.user_name == user.user_name %}
                     <h3 style="color: green;"> Your Post </h3>
                     {% endif %}
@@ -58,6 +62,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        <!-- modal main content -->
                         <div class="modal-body">
                             <h5>Detailed description:</h5>
                             <p class="w-wrap">{{ post.description }}</p>
@@ -67,9 +72,11 @@
                             <p>&#x1F4E7;  &nbsp; {{ user.email_address }}</p>
                             <p>&#9742;  &nbsp; {{ user.phone_number }}</p>
                             <h5>Show Address on Google Maps:</h5>
+                            <!-- link to google maps with link modified by user address + postleitzahl + ort -->
                            <a class="btn btn-danger" href="https://www.google.com/maps/place/{{user.address}}+{{user.postleitzahl}}+{{user.ort}}">Location</a>   <!-- todo gcp api embed map ifram, works for now-->
                         </div>
                         <div class="modal-footer">
+                            <!-- contact button no use yet -->
                             <button type="button" class="btn btn-primary">Contact </button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
