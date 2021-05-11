@@ -48,10 +48,6 @@ To Lint the project:
 
 ### A Few Notes...
 
-Error Note: On submitting profile informations in "profil_page" (routes, line 183).
-If you submit information + pictures => Internal service error (Heroku log: integer out of range)
-However you can first submit the information and afterwards the profile picture.
-
 Dont install psycopg2==2.8.6! Requirements.txt line 47. This is only for Heroku.
 
 (SecretNote: I havent wrote any test yet.
