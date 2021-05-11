@@ -22,6 +22,11 @@ You should have:
 
 - `pip install -r requirements.txt`
 
+- Create a .env file in the root directory of your project. Define the "SQLALCHEMY_DATABASE_URI" and "SECRET_KEY" and create the db with:
+- `python`
+- `from my_project import db`
+- `db.create_all()`
+
 - `source env/Scripts/activate`
 
 - `export FLASK_APP=main.py`
