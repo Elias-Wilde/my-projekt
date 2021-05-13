@@ -13,7 +13,7 @@ def load_user(user_id):
 #User model
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer(), primary_key=True)
-    user_name = db.Column(db.String(length=25), nullable=False, unique=True)
+    username = db.Column(db.String(length=25), nullable=False, unique=True)
     email_address = db.Column(db.String(length=40), nullable=False, unique=True)
     password_hash = db.Column(db.String(length=60), nullable=False)
     post = db.relationship(

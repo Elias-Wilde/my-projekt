@@ -16,7 +16,7 @@ class RegisterForm(FlaskForm):
     def validate_username(  #check validations
         self, username_to_check
     ):  # has to be name 'validate_username' since we named it 'username' down below
-        user = User.query.filter_by(user_name=username_to_check.data).first()
+        user = User.query.filter_by(username=username_to_check.data).first()
         if user:
             raise ValidationError("Username already taken!")    #validation error msg
 

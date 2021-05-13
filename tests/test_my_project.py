@@ -1,50 +1,16 @@
-# try:
-#     from my_project import app, db
-#     from my_project.models import User
-#     import pytest
-# except Exception as a:
-#     print("something is missing."(a))
-from my_project import app
+from my_project.models import User
 
+# testing the db connection by hard coding a user
+# and querying him by username
+def test_user_to_db(test_db):
+    user = User(
+        username="elias wilde", email_address="eliaswilde@web.de", password="123456"
+    )
+    test_db.session.add(user)
+    test_db.session.commit()
 
-def test_index():
-    # create a version of our website that we can use for testing
-    with app.test_client() as test_client:
-        # mimic a browser: 'GET /', as if you visit the site
-        response = test_client.get('/')
+    queried_user = User.query.filter_by(username="elias wilde").first()
 
-        # check that the HTTP response is a success
-        assert response.status_code == 200
-
-        # Store the contents of the html response in a local variable.
-        # This should be a string with the same content as the file index.html
-        html_content = response.data.decode()
-
-        assert '<html lang="en">' in html_content
-
-# @pytest.fixture
-# def client():
-#     app = app()
-#     app.config["TESTING"] = True
-#     app.testing = True
-#     # test db
-#     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite://"
-
-#     client = app.test_client()
-#     with app.app_context():
-#         db.create_all()
-#         user1 = User(id=1, user_name="elias", email_address="elias@email.com")
-#         db.session.add(user1)
-#         db.session.commit()
-#     yield client
-
-# def test_user(client) -> None:
-#     rv = client.get("/user/1")
-#     assert rv.json == {"id":1,"user_name": "elias", "email_address": "elias@email.com"}
-
-# def test_new_user():
-#     user = User('someuser','someuser@web.de','123456')
-#     assert user.email_address == 'someuser@web.de'
-#     assert user.user_name == 'someuser'
-#     assert user.password_hash != '123456'
-
+    assert queried_user.username == "elias wilde"
+    assert queried_user.email_address == "eliaswilde@web.de"
+    assert queried_user.check_password_correction("123456") is True

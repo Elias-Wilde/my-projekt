@@ -7,11 +7,11 @@
         <legend class="border-bottom mb-5 mt-5">
             <!-- if user hasent made a post yet -->
             {% if posts == [] %}
-            {{ current_user.user_name }}, no post yet! <a href="{{ url_for('create_page') }}"
+            {{ current_user.username }}, no post yet! <a href="{{ url_for('create_page') }}"
             class="btn btn-primary" role="button">Create one here!</a>
             {% else %}
             <!-- else user greeting -->
-            {{ current_user.user_name }}, manage your post's!
+            {{ current_user.username }}, manage your post's!
             {% endif %}
         </legend>
         <!-- loop over the posts -->

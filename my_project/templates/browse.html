@@ -21,9 +21,9 @@
                 </div>
                 <div>
                     <p class="mb-0">Creator:</p>
-                    <h3>{{ user.user_name }}</h3>
+                    <h3>{{ user.username }}</h3>
                     <!-- if the owner from the post is the current user -->
-                    {% if current_user.user_name == user.user_name %}
+                    {% if current_user.username == user.username %}
                     <h3 style="color: green;"> Your Post </h3>
                     {% endif %}
                 </div>
